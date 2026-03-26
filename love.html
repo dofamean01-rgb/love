@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Признание в любви | Ты особенная ❤️</title>
+    <link rel="stylesheet" href="love-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="love-container">
+        <!-- Фоновые анимированные сердечки -->
+        <div class="floating-hearts">
+            <div class="heart-animation">❤️</div>
+            <div class="heart-animation delay-1">💖</div>
+            <div class="heart-animation delay-2">💗</div>
+            <div class="heart-animation delay-3">💕</div>
+            <div class="heart-animation delay-4">💓</div>
+            <div class="heart-animation delay-5">🌸</div>
+        </div>
+
+        <!-- Конверт с письмом -->
+        <div class="envelope-wrapper">
+            <div class="love-letter">
+                <div class="letter-header">
+                    <span class="stamp">💌</span>
+                    <span class="stamp-right">✨</span>
+                </div>
+                
+                <div class="letter-content">
+                    <h1 class="love-title">Мое признание</h1>
+                    <div class="cute-divider">✧ : * ✧ : * ✧</div>
+                    
+                    <div class="love-message">
+                        <p class="greeting">Моя любимая,</p>
+                        
+                        <p>Я долго искал нужные слова, но они всё равно кажутся такими маленькими по сравнению с тем, что я чувствую...</p>
+                        
+                        <p>Когда ты рядом, мир становится ярче, краски насыщеннее, а воздух кажется слаще. Твоя улыбка — это мое самое любимое зрелище, а твой смех — лучшая музыка на свете.</p>
+                        
+                        <div class="highlight-quote">
+                            "Ты — не просто часть моей жизни. Ты — моя жизнь."
+                        </div>
+                        
+                        <p>Я люблю тебя за твою доброту, за твою силу, за то, как ты смотришь на меня своими прекрасными глазками. Я люблю тебя в хорошие дни и в плохие, в радости и в грусти.</p>
+                        
+                        <p>Ты — самое лучшее, что случилось со мной. И я хочу, чтобы ты знала: я буду рядом всегда. В каждом рассвете, в каждом закате, в любой момент — я буду любить тебя.</p>
+                        
+                        <div class="romantic-verse">
+                            <p>✨ Ты — мое вдохновение ✨<br>
+                            💫 Ты — мое счастье 💫<br>
+                            🌟 Ты — моя любовь навсегда 🌟</p>
+                        </div>
+                        
+                        <div class="signature-area">
+                            <p>С бесконечной любовью,</p>
+                            <p class="signature-name">✧Твой котт✧</p>
+                            <div class="cute-stamp">🐻‍❄️💕🐰</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="letter-footer">
+                    <button class="back-button" onclick="window.location.href='index.html'">
+                        ← Вернуться к открытке
+                    </button>
+                    <button class="play-button" id="playMusicBtn">🎵 Включить песенку 🎵</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Музыкальный плеер (скрытый, можно добавить свою мелодию) -->
+        <audio id="romanticMusic" loop preload="auto">
+            <source src="music/cup.mp3" type="audio/mpeg">
+            <!-- Замените ссылку выше на свою романтическую мелодию -->
+        </audio>
+        
+        <footer class="love-footer">
+            <p>💗</p>
+        </footer>
+    </div>
+
+    <script>
+        // Управление музыкой
+        const music = document.getElementById('romanticMusic');
+        const playBtn = document.getElementById('playMusicBtn');
+        let isPlaying = false;
+        
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                playBtn.innerHTML = '🎵 Включить песенку 🎵';
+                isPlaying = false;
+            } else {
+                music.play().catch(e => {
+                    console.log('Автозапуск заблокирован браузером, но кнопка работает');
+                });
+                playBtn.innerHTML = '⏸️ Выключить музыку ⏸️';
+                isPlaying = true;
+            }
+        });
+        
+        // Плавное появление элементов
+        document.querySelectorAll('.love-message p, .highlight-quote, .romantic-verse').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                el.style.transition = 'all 0.6s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 + index * 200);
+        });
+    </script>
+</body>
+</html>

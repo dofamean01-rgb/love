@@ -1,0 +1,325 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, #ffe6f0 0%, #ffd9e6 100%);
+    font-family: 'Quicksand', 'Segoe UI', 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 10 10, auto;
+}
+
+.card-container {
+    max-width: 1300px;
+    width: 100%;
+    background: rgba(255, 245, 250, 0.85);
+    backdrop-filter: blur(3px);
+    border-radius: 70px 70px 80px 80px;
+    box-shadow: 0 25px 45px rgba(255, 105, 180, 0.25), 0 10px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 200, 220, 0.7);
+}
+
+/* Плавающие сердечки */
+.envelope-decoration {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart-floating {
+    position: absolute;
+    font-size: 1.8rem;
+    animation: floatHeart 8s infinite ease-in-out;
+    opacity: 0.6;
+    left: 10%;
+}
+
+.heart-floating.delay {
+    left: 30%;
+    animation-delay: 2s;
+    font-size: 2rem;
+}
+
+.heart-floating.delay2 {
+    left: 75%;
+    animation-delay: 4s;
+    font-size: 1.5rem;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(40px) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.7;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-70px) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* Основная открытка */
+.greeting-card {
+    padding: 2rem 2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Галерея фотографий */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+.photo-frame {
+    background: #fff5f9;
+    padding: 12px 12px 8px 12px;
+    border-radius: 40px 40px 50px 50px;
+    box-shadow: 0 15px 25px rgba(255, 120, 160, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    border: 2px solid #ffc0d4;
+    background: linear-gradient(135deg, #ffffff, #ffeef4);
+}
+
+.photo-frame:hover {
+    transform: translateY(-12px) rotate(1deg);
+    box-shadow: 0 25px 35px rgba(255, 80, 140, 0.25);
+    border-color: #ff9ebb;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 32px;
+    display: block;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    background-color: #ffdae6;
+}
+
+.photo-caption {
+    margin-top: 12px;
+    font-weight: 600;
+    color: #c45a7a;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    background: rgba(255, 225, 235, 0.7);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+}
+
+/* Сообщение и текст */
+.message-area {
+    background: rgba(255, 245, 250, 0.9);
+    border-radius: 65px;
+    padding: 2rem 2rem;
+    text-align: center;
+    box-shadow: 0 12px 18px rgba(255, 105, 150, 0.15);
+    border: 1px solid #ffc2d6;
+    position: relative;
+}
+
+.sticker {
+    font-size: 3rem;
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    rotate: -15deg;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1));
+}
+
+h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e85d8f, #ff9ebe);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.heart-divider {
+    font-size: 1.6rem;
+    letter-spacing: 8px;
+    color: #ff99bb;
+    margin: 0.5rem 0 1rem;
+}
+
+.main-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #a13e62;
+    font-weight: 500;
+    background: rgba(255, 220, 235, 0.5);
+    padding: 1rem 1.5rem;
+    border-radius: 60px;
+    display: inline-block;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.signature {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #b34e74;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.cute-sign {
+    font-size: 1.8rem;
+    margin-top: 8px;
+}
+
+/* Кнопка с сюрпризом - теперь ссылка */
+.surprise-link {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.interactive-btn {
+    background: linear-gradient(95deg, #ffa5c0, #ff85ae);
+    border: none;
+    padding: 12px 26px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 6px 0 #b34167;
+    letter-spacing: 1px;
+}
+
+.interactive-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #b34167;
+}
+
+.interactive-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #b34167;
+    background: linear-gradient(95deg, #ffb5cd, #ff95b8);
+}
+
+/* Футер */
+.footer-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #e27c9e;
+    padding: 1rem 1rem 1.8rem;
+    border-top: 1px solid #ffc4da;
+    background: rgba(255, 235, 243, 0.6);
+}
+
+/* Адаптивность */
+@media (max-width: 750px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .greeting-card {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .main-text {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+    
+    .photo-gallery {
+        gap: 1.2rem;
+    }
+    
+    .photo-frame {
+        max-width: 220px;
+    }
+    
+    .interactive-btn {
+        font-size: 0.85rem;
+        padding: 10px 18px;
+    }
+    
+    .sticker {
+        font-size: 2rem;
+        top: -12px;
+        left: 15px;
+    }
+}
+
+@media (max-width: 550px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-frame {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .card-container {
+        border-radius: 45px;
+    }
+    
+    .signature {
+        font-size: 0.9rem;
+    }
+}
+
+/* Анимация появления */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.greeting-card {
+    animation: fadeSlideUp 0.6s ease-out;
+}
+
+.photo-frame {
+    animation: fadeSlideUp 0.5s backwards;
+}
+
+.frame1 { animation-delay: 0.1s; }
+.frame2 { animation-delay: 0.2s; }
+.frame3 { animation-delay: 0.3s; }
+.frame4 { animation-delay: 0.4s; }
